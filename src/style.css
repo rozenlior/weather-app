@@ -1,0 +1,110 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+div.transparent-box {
+  opacity: 0.8;
+  margin: 20px auto;
+  padding: 30px;
+  border: 2px solid white;
+  max-width: 700px;
+  border-radius: 10px;
+  background-color: rgba(96, 125, 139, 0.5);
+}
+
+div.background {
+  background-image: url("img-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  max-width: 700px;
+}
+
+form.search-form {
+  max-width: 100%;
+}
+
+div input.search-box {
+  border-radius: 10px;
+}
+
+div input.btn-light {
+  border-radius: 10px;
+  color: #536b78;
+}
+
+.header {
+  display: block;
+  text-align: left;
+  color: whitesmoke;
+  margin: 10px 20px;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1;
+  padding-top: 10px;
+}
+
+h2,
+h3 {
+  font-size: 20px;
+}
+
+div.main-icon img {
+  max-width: 120px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.current-temp {
+  font-size: 70px;
+  color: #f8efd4;
+}
+
+.units {
+  position: relative;
+  top: -30px;
+  color: #f8efd4;
+}
+
+.special-icons {
+  list-style: none;
+  color: #f8efd4;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+div.row-wrapper {
+  margin: 10px 20px 20px 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+div.forecast-days {
+  text-align: center;
+}
+
+div.forecast-icons img {
+  max-width: 70px;
+  margin: 20px auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+div.highs-lows {
+  font-size: 13px;
+  text-align: center;
+}
+
+div.forecast-wrapper {
+  background: whitesmoke;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+}
