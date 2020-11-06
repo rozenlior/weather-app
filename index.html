@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/e50f4f930e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="background">
+        <div class="transparent-box">
+          <div class="content">
+            <form class="search-form">
+              <div class="row">
+                <div class="col-9">
+                  <input 
+                    type="search"
+                    placeholder="Enter City..."
+                    class="form-control search-box"
+                    id="city-input-form"
+                  />
+                </div>
+                <div class="col-3">
+                  <input
+                    type="submit"
+                    value="Go"
+                    class="form-control btn btn-light"
+                  />
+                </div>
+              </div>
+            </form>
+            <div class="row">
+            <div class="col header">
+              <h1 id="city">Los Angeles</h1>
+              <h2 id="date">Date</h2>
+              <h3 class="temp-description" id="temp-description">
+                Sunny
+              </h3>
+              </div>
+            </div>
+
+            <div class="row row-wrapper">
+              <div class="col">
+                <div class="main-icon">
+                <img src="src/sun-try4.png" />
+              </div>
+           
+              </div>
+              <div class="col">
+                <span class="current-temp" id="current-temp"></span>
+                <span class="units">°C|°F</span>
+                </div>
+
+               
+            
+              <div class="col">
+                <ul class="special-icons">
+                  <li>High: <span id="high-temp"></span>°</li>
+                  <li>Low: <span id="low-temp"></span>°</li>
+                  <li>Sunrise: <span id="sunrise"></span></li>
+                  <li>Sunset: <span id="sunset"></span></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="forecast-wrapper">
+            <div class="row forecast-days">
+              <div class="col">Mon</div>
+              <div class="col">Tue</div>
+              <div class="col">Wed</div>
+              <div class="col">Thu</div>
+              <div class="col">Fri</div>
+            </div>
+            <div class="row weather-icons">
+              <div class="col forecast-icons">
+                <div class="card-icon1">
+                <img src="src/sun-try4.png" />
+                </div>
+              </div>
+                <div class="col forecast-icons">
+                  <div class="card-icon2">
+                    <img src="src/cloud-try2.png" />
+                  </div>
+                </div>
+                  <div class="col forecast-icons">
+                    <div class="card-icon3">
+                      <img src="src/rain-try.png" />
+                    </div>
+                  </div>
+                    <div class="col forecast-icons">
+                      <div class="card-icon4">
+                        <img src="src/partly-cloudy.png" />
+                      </div>
+                    </div>
+                      <div class="col forecast-icons">
+                        <div class="card-icon5">
+                          <img src="src/cloud-try2.png" />
+                        </div>
+                      </div>
+              </div>
+              <div class="row highs-lows">
+                <div class="col">87°/ 66° </div>
+                <div class="col">91°/ 64°</div>
+                <div class="col">89°/ 64°</div>
+                <div class="col">87°/ 66°</div>
+                <div class="col">91°/ 66°</div>
+              </div>
+              </div>
+        </div>
+      </div>
+    </div>
+ <script src="script.js"></script>
+  </body>
+</html>
