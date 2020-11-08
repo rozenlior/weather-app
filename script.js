@@ -46,6 +46,7 @@ function searchCity(event) {
   let city = document.querySelector("#city-input-form").value;
 let apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 axios.get(apiUrl).then(displayWeatherCondition);
+console.log(apiUrl);
 //make an API call to OpenWeather API
 //Once i get the http response, we display the city name and temp
 }

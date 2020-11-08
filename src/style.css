@@ -56,6 +56,8 @@ div.main-icon img {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .current-temp {
@@ -64,9 +66,16 @@ div.main-icon img {
 }
 
 .units {
-  position: relative;
-  top: -30px;
   color: #f8efd4;
+  position: relative;
+  top: -15px;
+}
+
+.main-temp {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .special-icons {
@@ -75,10 +84,11 @@ div.main-icon img {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  margin: 0 auto;
 }
 
 div.row-wrapper {
-  margin: 10px 20px 20px 20px;
+  margin: 10px 20px;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
