@@ -20,24 +20,35 @@ div.background {
   max-width: 700px;
 }
 
+.heading-wrapper {
+  margin: 5px auto;
+  margin-bottom: 0;
+}
+
 form.search-form {
-  max-width: 100%;
+  margin: 15px;
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 div input.search-box {
   border-radius: 10px;
+  max-width: 500px;
+  position: relative;
+  left: 10px;
 }
 
 div input.btn-light {
   border-radius: 10px;
   color: #536b78;
+  max-width: 60px;
+  position: relative;
+  right: 10px;
 }
 
 .header {
-  display: block;
   text-align: left;
   color: whitesmoke;
-  margin: 10px 20px;
 }
 
 h1 {
@@ -47,8 +58,16 @@ h1 {
   font-weight: bold;
 }
 
+.sub-heading {
+  margin: 10px 20px;
+  text-align: left;
+  color: whitesmoke;
+  margin-top: 0;
+}
+
 h2,
 h3 {
+  line-height: 1;
   font-size: 20px;
 }
 
@@ -94,6 +113,7 @@ div.row-wrapper {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+  margin-top: 0;
 }
 
 div.forecast-days {

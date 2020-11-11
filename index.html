@@ -28,35 +28,29 @@
       <div class="background">
         <div class="transparent-box">
           <div class="content">
-            <form class="search-form">
-              <div class="row">
-                <div class="col-9">
-                  <input 
-                    type="search"
-                    placeholder="Enter City..."
-                    class="form-control search-box"
-                    id="city-input-form"
-                  />
-                </div>
-                <div class="col-3">
-                  <input
-                    type="submit"
-                    value="Go"
-                    class="form-control btn btn-light"
-                  />
-                </div>
-              </div>
-            </form>
-            <div class="row">
-            <div class="col header">
+            <div class="row heading-wrapper">
+            <span class="col header">
               <h1 id="city">Los Angeles</h1>
+            </span>
+            <form class="search-form">
+              <span class="col-10">
+                <input type="search" placeholder="Enter City..." class="form-control search-box" id="city-input-form" />
+              </span>
+              <span class="col">
+                <input type="submit" value="Go" class="form-control btn btn-light" />
+              </span>
+                  </form>
+            </div>
+      
+            <div class="row">
+              <div class="col sub-heading">
               <h2 id="date">Date</h2>
               <h3 class="temp-description" id="temp-description">
                 Sunny
               </h3>
               </div>
-            </div>
-
+              </div>
+              </div> 
             <div class="row row-wrapper">
               <div class="col">
                 <div class="main-icon">
