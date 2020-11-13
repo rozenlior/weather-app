@@ -1,7 +1,5 @@
-//Challenge 1: Display current date and time
-//h2
-function formatDate(date) {
-  
+function formatDate(timestamp) {
+  let date= new Date(timestamp);
 let hour = date.getHours();
 if (hour < 10) {
   hour = `0${hour}`;
@@ -13,29 +11,28 @@ if (minutes < 10) {
 
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 let day = days[date.getDay()];
-
 return `${day}, ${hour}:${minutes}`;
-
 }
-
-let dateElement = document.querySelector("#date");
-let currentTime = new Date();
-
-dateElement.innerHTML = formatDate(currentTime);
-
-//Challenge 2: Add a search engine, when searching for a city, display the city name on the page after user submits form.
-// form class: #search-form
-//input id: #city-input-form
 
 
 function displayWeatherCondition(response) {
- 
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#current-temp").innerHTML= Math.round(response.data.main.temp);
-  document.querySelector("#temp-description").innerHTML=response.data.weather[0].main;
-  document.querySelector("#low-temp").innerHTML= Math.round(response.data.main.temp_min);
-    document.querySelector("#high-temp").innerHTML= Math.round(response.data.main.temp_max);
-console.log(response.data);
+  let cityElement=document.querySelector("#city");
+  let tempElement=document.querySelector("#current-temp");
+  let descriptionElement= document.querySelector("#temp-description");
+  let lowElement=document.querySelector("#low-temp");
+  let highElement=document.querySelector("#high-temp");
+  let windElement=document.querySelector("#wind");
+  let humidityElement=document.querySelector("#humidity");
+  let dateElement=document.querySelector("#date");
+   cityElement.innerHTML = response.data.name;
+   tempElement.innerHTML= Math.round(response.data.main.temp);
+   descriptionElement.innerHTML=response.data.weather[0].main;
+   lowElement.innerHTML= Math.round(response.data.main.temp_min);
+   highElement.innerHTML= Math.round(response.data.main.temp_max);
+   windElement.innerHTML= Math.round(response.data.wind.speed);
+   humidityElement.innerHTML= response.data.main.humidity;
+   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+   
 }
 
 
@@ -44,11 +41,8 @@ function searchCity(event) {
   event.preventDefault();
   let apiKey ="958b71e38c385a4f0896342006026aa2";
   let city = document.querySelector("#city-input-form").value;
-let apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 axios.get(apiUrl).then(displayWeatherCondition);
-console.log(apiUrl);
-//make an API call to OpenWeather API
-//Once i get the http response, we display the city name and temp
 }
 
 let form= document.querySelector(".search-form");
