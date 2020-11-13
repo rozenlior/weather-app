@@ -24,7 +24,7 @@ function displayWeatherCondition(response) {
   let windElement=document.querySelector("#wind");
   let humidityElement=document.querySelector("#humidity");
   let dateElement=document.querySelector("#date");
-  let iconElement=document.querySelector("#icon");
+  let iconElement=document.querySelector("#weather-icon");
    cityElement.innerHTML = response.data.name;
    tempElement.innerHTML= Math.round(response.data.main.temp);
    descriptionElement.innerHTML=response.data.weather[0].main;
@@ -34,6 +34,10 @@ function displayWeatherCondition(response) {
    humidityElement.innerHTML= response.data.main.humidity;
    dateElement.innerHTML = formatDate(response.data.dt * 1000);
    iconElement.setAttribute("alt", response.data.weather[0].main);
+   iconElement.setAttribute("src", `src/img/${response.data.weather[0].icon}.png`);
+
+   document.querySelector("#weather-icon").src = "src/img/" + response.data.weather[0].icon + ".png";
+
    console.log(response.data);
 }
 
