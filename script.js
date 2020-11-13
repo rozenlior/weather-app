@@ -24,6 +24,7 @@ function displayWeatherCondition(response) {
   let windElement=document.querySelector("#wind");
   let humidityElement=document.querySelector("#humidity");
   let dateElement=document.querySelector("#date");
+  let iconElement=document.querySelector("#icon");
    cityElement.innerHTML = response.data.name;
    tempElement.innerHTML= Math.round(response.data.main.temp);
    descriptionElement.innerHTML=response.data.weather[0].main;
@@ -32,9 +33,9 @@ function displayWeatherCondition(response) {
    windElement.innerHTML= Math.round(response.data.wind.speed);
    humidityElement.innerHTML= response.data.main.humidity;
    dateElement.innerHTML = formatDate(response.data.dt * 1000);
-   
+   iconElement.setAttribute("alt", response.data.weather[0].main);
+   console.log(response.data);
 }
-
 
 
 function searchCity(event) {
@@ -43,6 +44,7 @@ function searchCity(event) {
   let city = document.querySelector("#city-input-form").value;
   let apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 axios.get(apiUrl).then(displayWeatherCondition);
+
 }
 
 let form= document.querySelector(".search-form");
