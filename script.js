@@ -41,18 +41,32 @@ function displayWeatherCondition(response) {
    console.log(response.data);
 }
 
-
-function searchCity(event) {
-  event.preventDefault();
-  let apiKey ="958b71e38c385a4f0896342006026aa2";
-  let city = document.querySelector("#city-input-form").value;
-  let apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function search (city) {
+let apiKey ="958b71e38c385a4f0896342006026aa2";
+ let apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayWeatherCondition);
-
 }
 
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input-form");
+search(cityInputElement.value);
+}
+
+search("Los Angeles");
+
 let form= document.querySelector(".search-form");
-form.addEventListener("submit", searchCity);
+form.addEventListener("submit", handleSubmit);
 
 
+function showFahrenheitTemperature(event){
+  event.preventDefault();
+  let fahrenheitTemperature = (14 * 9)/ 5 + 32;
+  let tempElement= document.querySelector("#current-temp");
+  tempElement.innerHTML= Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitLink=document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
