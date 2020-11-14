@@ -36,6 +36,8 @@ function displayWeatherCondition(response) {
    iconElement.setAttribute("alt", response.data.weather[0].main);
    iconElement.setAttribute("src", `src/img/${response.data.weather[0].icon}.png`);
 
+   celsiusTemperature=response.data.main.temp;
+
    document.querySelector("#weather-icon").src = "src/img/" + response.data.weather[0].icon + ".png";
 
    console.log(response.data);
@@ -54,19 +56,37 @@ function handleSubmit(event) {
 search(cityInputElement.value);
 }
 
-search("Los Angeles");
+function showCelsiusTemperature(event){
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let tempElement= document.querySelector("#current-temp");
+tempElement.innerHTML= Math.round(celsiusTemperature);
+}
+
+function showFahrenheitTemperature(event){
+  event.preventDefault();
+  let tempElement= document.querySelector("#current-temp");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+    let fahrenheitTemperature = (celsiusTemperature * 9)/ 5 + 32;
+  tempElement.innerHTML= Math.round(fahrenheitTemperature);
+}
+
 
 let form= document.querySelector(".search-form");
 form.addEventListener("submit", handleSubmit);
 
 
-function showFahrenheitTemperature(event){
-  event.preventDefault();
-  let fahrenheitTemperature = (14 * 9)/ 5 + 32;
-  let tempElement= document.querySelector("#current-temp");
-  tempElement.innerHTML= Math.round(fahrenheitTemperature);
-}
+
+
+let celsiusTemperature= null;
+
+
+let celsiusLink=document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 let fahrenheitLink=document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
+search("Los Angeles");

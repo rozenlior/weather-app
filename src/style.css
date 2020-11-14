@@ -148,3 +148,12 @@ small.open-source {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
+
+.units .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.units .active:hover {
+  text-decoration: none;
+}
