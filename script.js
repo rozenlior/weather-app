@@ -1,17 +1,23 @@
-function formatDate(timestamp) {
-  let date= new Date(timestamp);
-let hour = date.getHours();
-if (hour < 10) {
-  hour = `0${hour}`;
-}
-let minutes = date.getMinutes();
+function formatDate(date, timezone) {
+
+  let localOffsetInMs = date.getTimezoneOffset() * 60 * 1000;
+  let targetOffsetInMs = timezone * 1000;
+  let targetTimestamp = date.getTime() + localOffsetInMs + targetOffsetInMs;
+  let localDate = new Date(targetTimestamp);
+
+  let hours = localDate.getHours();
+  if (hours < 10) {
+  hours = `0${hours}`;
+  }
+let minutes = localDate.getMinutes();
 if (minutes < 10) {
-  minutes = `0${minutes}`;
+minutes = `0${minutes}`;
 }
 
+let dayIndex = localDate.getDay();
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-let day = days[date.getDay()];
-return `${day}, ${hour}:${minutes}`;
+let day = days[dayIndex];
+return `${day}, ${hours}:${minutes}`;
 }
 
 
@@ -32,15 +38,15 @@ function displayWeatherCondition(response) {
    highElement.innerHTML= Math.round(response.data.main.temp_max);
    windElement.innerHTML= Math.round(response.data.wind.speed);
    humidityElement.innerHTML= response.data.main.humidity;
-   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+   dateElement.innerHTML = formatDate(
+     new Date(),
+     response.data.timezone);
    iconElement.setAttribute("alt", response.data.weather[0].main);
    iconElement.setAttribute("src", `src/img/${response.data.weather[0].icon}.png`);
 
    celsiusTemperature=response.data.main.temp;
 
    document.querySelector("#weather-icon").src = "src/img/" + response.data.weather[0].icon + ".png";
-
-   console.log(response.data);
 }
 
 function search (city) {
