@@ -45,6 +45,8 @@ function displayWeatherCondition(response) {
    iconElement.setAttribute("src", `src/img/${response.data.weather[0].icon}.png`);
 
    celsiusTemperature=response.data.main.temp;
+   lowTemp= response.data.main.temp_min;
+   highTemp= response.data.main.temp_max;
 
    document.querySelector("#weather-icon").src = "src/img/" + response.data.weather[0].icon + ".png";
 }
@@ -68,6 +70,8 @@ function showCelsiusTemperature(event){
   fahrenheitLink.classList.remove("active");
   let tempElement= document.querySelector("#current-temp");
 tempElement.innerHTML= Math.round(celsiusTemperature);
+document.querySelector("#low-temp").innerHTML=Math.round(lowTemp);
+document.querySelector("#high-temp").innerHTML= Math.round(highTemp);
 }
 
 function showFahrenheitTemperature(event){
@@ -75,11 +79,13 @@ function showFahrenheitTemperature(event){
   let tempElement= document.querySelector("#current-temp");
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-    let fahrenheitTemperature = (celsiusTemperature * 9)/ 5 + 32;
+  let fahrenheitTemperature = (celsiusTemperature * 9)/ 5 + 32;
   tempElement.innerHTML= Math.round(fahrenheitTemperature);
+document.querySelector("#low-temp").innerHTML= Math.round((lowTemp * 9)/5 + 32);
+document.querySelector("#high-temp").innerHTML= Math.round((highTemp * 9)/ 5 + 32);
+
+
 }
-
-
 let form= document.querySelector(".search-form");
 form.addEventListener("submit", handleSubmit);
 
@@ -94,5 +100,7 @@ celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 let fahrenheitLink=document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+
 
 search("Los Angeles");
