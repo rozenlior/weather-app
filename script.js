@@ -49,6 +49,7 @@ function displayWeatherCondition(response) {
    highTemp= response.data.main.temp_max;
 
    document.querySelector("#weather-icon").src = "src/img/" + response.data.weather[0].icon + ".png";
+
 }
 
 function search (city) {
