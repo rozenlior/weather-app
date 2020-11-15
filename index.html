@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <link rel="stylesheet" href="src/style.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="background">
-        <div class="transparent-box">
-          <div class="content">
-            <div class="row heading-wrapper">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="src/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="background">
+      <div class="transparent-box">
+        <div class="content">
+          <div class="row heading-wrapper">
             <span class="col header">
               <h1 id="city">Los Angeles</h1>
             </span>
@@ -35,90 +30,94 @@
               <span class="col">
                 <input type="submit" value="Go" class="form-control btn btn-light" />
               </span>
-                  </form>
-            </div>
-      
-            <div class="row">
-              <div class="col sub-heading">
+            </form>
+          </div>
+
+          <div class="row">
+            <div class="col sub-heading">
               <h2 id="date"></h2>
               <h3 class="temp-description" id="temp-description">
               </h3>
-              </div>
-              </div>
-              </div> 
-            <div class="row row-wrapper">
-              <div class="col">
-                <div class="main-icon">
-                <img src="src/img/01d.png" alt="" id="weather-icon"/>
-              </div>
-           
-              </div>
-              <div class="col main-temp-col">
-                <span class="current-temp" id="current-temp"></span>
-                <span class="units"><a href="#" id="celsius-link" class="active">°C</a> | <a href="#" id="fahrenheit-link">°F</a></span>
-                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-wrapper">
+          <div class="col">
+            <div class="main-icon">
+              <img src="src/img/01d.png" alt="" id="weather-icon" />
+            </div>
 
-               
-            
-              <div class="col">
-                <ul class="special-temp-info">
-                  <li><strong>High:</strong> <span id="high-temp"></span>°</li>
-                  <li><strong>Low:</strong> <span id="low-temp"></span>°</li>
-                  <li><strong>Wind:</strong> <span id="wind"></span> km/h</li>
-                  <li><strong>Humidity: </strong><span id="humidity"></span>%</li>
-                  </div>
-                </ul>
-            </div>
-            
-            <div class="forecast-wrapper">
-            <div class="row forecast-days">
-              <div class="col">Mon</div>
-              <div class="col">Tue</div>
-              <div class="col">Wed</div>
-              <div class="col">Thu</div>
-              <div class="col">Fri</div>
-            </div>
-            <div class="row weather-icons">
-              <div class="col forecast-icons">
-                <div class="card-icon1">
+          </div>
+          <div class="col main-temp-col">
+            <span class="current-temp" id="current-temp"></span>
+            <span class="units"><a href="#" id="celsius-link" class="active">°C</a> | <a href="#"
+                id="fahrenheit-link">°F</a></span>
+          </div>
+
+
+
+          <div class="col-5">
+            <ul class="special-temp-info">
+              <li><strong>High/Low:</strong> <span id="high-temp"></span>°/
+                <span id="low-temp"></span>°</li>
+              <li><strong>Humidity: </strong><span id="humidity"></span>%</li>
+              <li><strong>Wind: </strong><span id="wind"></span> km/h</li>
+              <li><strong>AQI: </strong><span id="air-quality"></span></li>
+
+          </div>
+          </ul>
+        </div>
+
+        <div class="forecast-wrapper">
+          <div class="row forecast-days">
+            <div class="col">Mon</div>
+            <div class="col">Tue</div>
+            <div class="col">Wed</div>
+            <div class="col">Thu</div>
+            <div class="col">Fri</div>
+          </div>
+          <div class="row weather-icons">
+            <div class="col forecast-icons">
+              <div class="card-icon1">
                 <img src="src/img/01d.png" />
-                </div>
               </div>
-                <div class="col forecast-icons">
-                  <div class="card-icon2">
-                    <img src="src/img/03d.png" />
-                  </div>
-                </div>
-                  <div class="col forecast-icons">
-                    <div class="card-icon3">
-                      <img src="src/img/09d.png" />
-                    </div>
-                  </div>
-                    <div class="col forecast-icons">
-                      <div class="card-icon4">
-                        <img src="src/img/02d.png" />
-                      </div>
-                    </div>
-                      <div class="col forecast-icons">
-                        <div class="card-icon5">
-                          <img src="src/img/04d.png" />
-                        </div>
-                      </div>
+            </div>
+            <div class="col forecast-icons">
+              <div class="card-icon2">
+                <img src="src/img/03d.png" />
               </div>
-              <div class="row highs-lows">
-                <div class="col"><strong>87°</strong> / 66° </div>
-                <div class="col"><strong>91°</strong> / 64°</div>
-                <div class="col"><strong>89°</strong> / 64°</div>
-                <div class="col"><strong>87°</strong> / 66°</div>
-                <div class="col"><strong>91°</strong> / 66°</div>
+            </div>
+            <div class="col forecast-icons">
+              <div class="card-icon3">
+                <img src="src/img/09d.png" />
               </div>
+            </div>
+            <div class="col forecast-icons">
+              <div class="card-icon4">
+                <img src="src/img/02d.png" />
               </div>
+            </div>
+            <div class="col forecast-icons">
+              <div class="card-icon5">
+                <img src="src/img/04d.png" />
+              </div>
+            </div>
+          </div>
+          <div class="row highs-lows">
+            <div class="col"><strong>87°</strong> / 66° </div>
+            <div class="col"><strong>91°</strong> / 64°</div>
+            <div class="col"><strong>89°</strong> / 64°</div>
+            <div class="col"><strong>87°</strong> / 66°</div>
+            <div class="col"><strong>91°</strong> / 66°</div>
+          </div>
         </div>
       </div>
+    </div>
     <small class="open-source">
-    <a href="https://github.com/rozenlior/weather-app" target="_blank">Open-source code</a> by Lior Rozen
-</small>
+      <a href="https://github.com/rozenlior/weather-app" target="_blank">Open-source code</a> by Lior Rozen
+    </small>
   </div>
- <script src="script.js"></script>4
-  </body>
+  <script src="script.js"></script>4
+</body>
+
 </html>

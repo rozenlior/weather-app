@@ -76,7 +76,7 @@ div input.btn-light {
 }
 
 div.row-wrapper {
-  margin: 10px 20px;
+  margin: 20px 20px;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
