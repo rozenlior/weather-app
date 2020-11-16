@@ -78,6 +78,13 @@ function displayExtraConditions(response) {
   airQualityElement.innerHTML = airDesc;
 }
 
+function displayForecast (response){
+  console.log(response.data);
+}
+
+
+
+
 function search(city) {
   let apiKey = "958b71e38c385a4f0896342006026aa2";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -86,14 +93,18 @@ function search(city) {
   let apiKeyTwo = "a4e05904d8474359854ef52b8478450f";
   let apiUrlTwo = `https://api.weatherbit.io/v2.0/current?city=${city}&key=${apiKeyTwo}&units=metric`;
   axios.get(apiUrlTwo).then(displayExtraConditions);
+
+ let apiUrlThree = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${apiKeyTwo}&units=metric`;
+  axios.get(apiUrlThree).then(displayForecast);
 }
 
+// form
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input-form");
   search(cityInputElement.value);
 }
-
+//Temperature Conversion Functions
 function showCelsiusTemperature(event) {
   event.preventDefault();
   celsiusLink.classList.add("active");
@@ -118,6 +129,8 @@ function showFahrenheitTemperature(event) {
     (highTemp * 9) / 5 + 32
   );
 }
+
+//Event Listeners
 let form = document.querySelector(".search-form");
 form.addEventListener("submit", handleSubmit);
 
