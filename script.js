@@ -1,3 +1,6 @@
+
+
+
 function formatDate(date, timezone) {
   let localOffsetInMs = date.getTimezoneOffset() * 60 * 1000;
   let targetOffsetInMs = timezone * 1000;
@@ -26,6 +29,8 @@ function formatDate(date, timezone) {
   let day = days[dayIndex];
   return `${day}, ${hours}:${minutes}`;
 }
+
+
 
 function displayWeatherCondition(response) {
   let cityElement = document.querySelector("#city");
@@ -78,9 +83,47 @@ function displayExtraConditions(response) {
   airQualityElement.innerHTML = airDesc;
 }
 
+
+function formatHours(timestamp){
+  let date= new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes= `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
 function displayForecast (response){
   console.log(response.data);
+  let forecastElement= document.querySelector("#forecast");
+  forecastElement.innerHTML= null;
+ let forecast= null;
+
+for (let index = 0; index < 5; index++) {
+   forecast= response.data.list[index];
+  forecastElement.innerHTML += 
+    ` <div class="col">
+      <h3>
+       <div class="hourly-forecast">
+       ${formatHours(forecast.dt * 1000)}
+       </div>
+       </h3>
+      <div class="forecast-icons">
+      <img 
+      src= "src/img/${forecast.weather[0].icon}.png" />
+       </div>
+      <div class="highs-lows">
+     <strong>${Math.round(forecast.main.temp_max)}°
+     </strong> ${Math.round(forecast.main.temp_min)}° 
+     </div>
+      </div>`;
+  }
 }
+
 
 
 
@@ -94,8 +137,8 @@ function search(city) {
   let apiUrlTwo = `https://api.weatherbit.io/v2.0/current?city=${city}&key=${apiKeyTwo}&units=metric`;
   axios.get(apiUrlTwo).then(displayExtraConditions);
 
- let apiUrlThree = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${apiKeyTwo}&units=metric`;
-  axios.get(apiUrlThree).then(displayForecast);
+ apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 // form
