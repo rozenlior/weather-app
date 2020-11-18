@@ -15,21 +15,20 @@ h3 {
   font-size: 20px;
 }
 
-div.transparent-box {
-  opacity: 0.8;
+.transparent-box {
   margin: 20px auto;
   padding: 30px;
+  opacity: 0.8;
   border: 2px solid white;
   max-width: 700px;
   border-radius: 10px;
   background-color: rgba(96, 125, 139, 0.5);
-}
-
-div.background {
-  background-image: url("img-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 10px;
+}
+
+.container {
+  margin: 20px auto;
   max-width: 700px;
 }
 
@@ -44,14 +43,14 @@ form.search-form {
   flex-flow: row nowrap;
 }
 
-div input.search-box {
+input.search-box {
   border-radius: 10px;
   max-width: 500px;
   position: relative;
   left: 10px;
 }
 
-div input.btn-light {
+input.btn-light {
   border-radius: 10px;
   color: #536b78;
   max-width: 60px;
@@ -63,6 +62,7 @@ div input.btn-light {
 .sub-heading {
   text-align: left;
   color: whitesmoke;
+  font-weight: bold;
 }
 
 .sub-heading {
@@ -75,7 +75,7 @@ div input.btn-light {
   left: -5px;
 }
 
-div.row-wrapper {
+.row-wrapper {
   margin: 20px 20px;
   display: flex;
   flex-flow: row nowrap;
@@ -84,7 +84,7 @@ div.row-wrapper {
   margin-top: 0;
 }
 
-div.main-icon img {
+.main-icon img {
   max-width: 120px;
   display: flex;
   flex-flow: row nowrap;
@@ -120,19 +120,19 @@ div.main-icon img {
   margin: 0 auto;
 }
 
-div.forecast-wrapper {
+.forecast-wrapper {
   background: whitesmoke;
   margin: 20px auto;
   padding: 20px;
   border-radius: 5px;
 }
 
-div.hourly-forecast {
+.hourly-forecast {
   text-align: center;
   font-size: 16px;
 }
 
-div.forecast-icons img {
+.forecast-icons img {
   max-width: 70px;
   margin: 20px auto;
   display: flex;
@@ -140,7 +140,7 @@ div.forecast-icons img {
   justify-content: center;
 }
 
-div.highs-lows {
+.highs-lows {
   font-size: 13px;
   text-align: center;
 }
@@ -148,13 +148,22 @@ div.highs-lows {
 small.open-source {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
+  float: center;
 }
 
 .units .active {
-  color: rgb(33, 33, 33);
+  color: whitesmoke;
   cursor: default;
+  font-weight: bold;
+  opacity: 1;
 }
 
 .units .active:hover {
   text-decoration: none;
+}
+
+.units a {
+  font-weight: bold;
+  color: whitesmoke;
+  opacity: 0.7;
 }

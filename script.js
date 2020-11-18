@@ -62,7 +62,16 @@ function displayWeatherCondition(response) {
 
   document.querySelector("#weather-icon").src =
     "src/img/" + response.data.weather[0].icon + ".png";
+
+
+  let backgroundElement= document.querySelector(".transparent-box");
+  // backgroundElement.setAttribute("alt", response.data.weather[0].main);
+  // backgroundElement.setAttribute( "src", `src/img-background/${response.data.weather[0].icon}.jpg`);
+
+  backgroundElement.style.backgroundImage = `url(src/img-background/${response.data.weather[0].icon}.jpg)`;
 }
+
+
 
 function displayExtraConditions(response) {
   let airQualityElement = document.querySelector("#air-quality");
@@ -125,7 +134,7 @@ for (let index = 0; index < 5; index++) {
       <div class="highs-lows">
      <strong> <span id="temp-max">${Math.round(tempMax)}</span>°
      </strong> 
-     <span id="temp-min">${Math.round(tempMin)}°</span>
+     <span id="temp-min">${Math.round(tempMin)}</span>°
      </div>
       </div>`;
   }
