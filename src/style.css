@@ -122,6 +122,7 @@ input.btn-light {
 
 .forecast-wrapper {
   background: whitesmoke;
+  opacity: 0.8;
   margin: 20px auto;
   padding: 20px;
   border-radius: 5px;
@@ -147,8 +148,7 @@ input.btn-light {
 
 small.open-source {
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  float: center;
+  font-size: 14px;
 }
 
 .units .active {
