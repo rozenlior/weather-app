@@ -60,8 +60,7 @@ function displayWeatherCondition(response) {
   lowTemp = response.data.main.temp_min;
   highTemp = response.data.main.temp_max;
 
-  document.querySelector("#weather-icon").src =
-    "src/img/" + response.data.weather[0].icon + ".png";
+
 
 
   let backgroundElement= document.querySelector(".transparent-box");
@@ -117,9 +116,8 @@ function displayForecast (response){
  let tempMax= document.querySelector("#temp-max");
 let tempMin= document.querySelector("#temp-min");
 
+
 for (let index = 0; index < 5; index++) {
-   forecast= response.data.list[index];
- 
   tempMax=forecast.main.temp_max;
    tempMin=forecast.main.temp_min;
 
@@ -127,7 +125,7 @@ for (let index = 0; index < 5; index++) {
     ` <div class="col">
       <h3>
        <div class="hourly-forecast">
-       ${formatHours(forecast.dt * 1000)}
+       ${formatHours(forecast.dt * 1000 + (response.data.city.timezone*1000))}
        </div>
        </h3>
       <div class="forecast-icons">
