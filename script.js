@@ -116,8 +116,11 @@ function displayForecast (response){
  let tempMax= document.querySelector("#temp-max");
 let tempMin= document.querySelector("#temp-min");
 
+ console.log(response.data.city.timezone);
+
 
 for (let index = 0; index < 5; index++) {
+   forecast= response.data.list[index];
   tempMax=forecast.main.temp_max;
    tempMin=forecast.main.temp_min;
 
