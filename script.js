@@ -60,7 +60,7 @@ function displayWeatherCondition(response) {
   lowTemp = response.data.main.temp_min;
   highTemp = response.data.main.temp_max;
 
-
+console.log(response.data);
 
 
   let backgroundElement= document.querySelector(".transparent-box");
@@ -128,7 +128,7 @@ for (let index = 0; index < 5; index++) {
     ` <div class="col">
       <h3>
        <div class="hourly-forecast">
-       ${formatHours(forecast.dt * 1000 + (response.data.city.timezone*1000))}
+       ${formatHours(forecast.dt * 1000)}
        </div>
        </h3>
       <div class="forecast-icons">
